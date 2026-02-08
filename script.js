@@ -82,14 +82,61 @@
 
 // console.log(multiples(4, 40));
 
-function getMultiples(num, limit) {
-  let result = [];
+// function getMultiples(num, limit) {
+//   let result = [];
 
-  for (let i = num; i <= limit; i += num) {
-    result.push(i);
+//   for (let i = num; i <= limit; i += num) {
+//     result.push(i);
+//   }
+
+//   return result;
+// }
+
+// console.log(getMultiples(4, 31));
+
+// ********************************************************************************************************************
+
+// Find the HCF (Highest Common Factor) or GCD of Two Numbers
+
+// Input = 12,18
+// Output HCF = 6
+
+// function getHCF(a, b) {
+//   const factorsOfa = [];
+
+//   for (let i = 1; i <= Math.sqrt(a); i++) {
+//     let partnerIndexOfa = a / i;
+
+//     if (a % i === 0) {
+//       factorsOfa.push(i);
+
+//       if (!factorsOfa.includes(partnerIndexOfa)) factorsOfa.push(i);
+//     }
+//   }
+// }
+
+// console.log(getHCF(12, 18));
+
+function getFactors(num) {
+  let factors = [];
+
+  for (let i = 1; i <= Math.sqrt(num); i++) {
+    let partnerIndexOfa = num / i;
+
+    if (num % i === 0) {
+      factors.slice(factors.length / 2, 0, i);
+      if (!factors.includes(partnerIndexOfa)) {
+        factors.slice(factors.length / 2 + 1, 0, partnerIndexOfa);
+      }
+    }
   }
 
-  return result;
+  return factors;
 }
 
-console.log(getMultiples(4, 31));
+console.log(getFactors(25));
+console.log(getFactors(18));
+console.log(getFactors(80));
+console.log(getFactors(36));
+console.log(getFactors(44));
+console.log(getFactors(96));
