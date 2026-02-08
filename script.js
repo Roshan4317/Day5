@@ -58,30 +58,38 @@
 
 // console.log(allFactors(24));
 
-// function getAllFactor(num) {
-//   let loopCount = 0;
-//   const factors = [];
+// ********************************************************************************************************************
 
-//   for (let i = 1; i <= Math.sqrt(num); i++) {
+// Print all multiples of a Number upto N
+
+// Number = 4 , limit = 30
+
+// Output = [4,8,12,16,20,24,28]
+
+// function multiples(num, limit) {
+//   const result = [];
+//   let loopCount = 0;
+
+//   for (let i = 1; i <= limit / num; i++) {
 //     loopCount++;
 
-//     if (num % i === 0) {
-//       const partnerOfI = num / i;
-
-//       factors.splice(factors.length / 2, 0, i);
-//       if (!factors.includes(partnerOfI))
-//         factors.splice(factors.length / 2 + 1, 0, partnerOfI);
-//     }
+//     result.push(num * i);
 //   }
 
-//   console.log(`LoopCount: ${loopCount}`);
-//   return factors;
+//   console.log(`LoopCount ${loopCount}`);
+//   return result;
 // }
 
-// console.log(getAllFactor(8));
-// console.log(getAllFactor(25));
-// console.log(getAllFactor(84));
-// console.log(getAllFactor(45));
-// console.log(getAllFactor(61));
-// console.log(getAllFactor(36));
-// console.log(getAllFactor(16));
+// console.log(multiples(4, 40));
+
+function getMultiples(num, limit) {
+  let result = [];
+
+  for (let i = num; i <= limit; i += num) {
+    result.push(i);
+  }
+
+  return result;
+}
+
+console.log(getMultiples(4, 31));
