@@ -243,3 +243,27 @@
 // }
 
 // console.log(sumOfAllFactors(12));
+
+// ********************************************************************************************************************
+
+// Find the Greatest Factor of a Number (Other Than Itself)
+
+// Input: N = 36
+// Output: 18
+
+function greatestFactor(num) {
+  let digit = [];
+
+  for (let i = 1; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      digit.splice(digit.length / 2, 0, i);
+      const partnerIndex = num / i;
+      if (!digit.includes(partnerIndex))
+        digit.splice(digit.length / 2 + 1, 0, partnerIndex);
+    }
+  }
+
+  return digit[digit.length - 2];
+}
+
+console.log(greatestFactor(36));
