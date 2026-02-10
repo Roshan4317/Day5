@@ -58,6 +58,34 @@
 
 // console.log(allFactors(24));
 
+// function getAllFactor(num) {
+//   let loopCount = 0;
+//   const factors = [];
+
+//   for (let i = 1; i <= Math.sqrt(num); i++) {
+//     loopCount++;
+
+//     if (num % i === 0) {
+//       const partnerOfI = num / i;
+
+//       factors.splice(factors.length / 2, 0, i);
+//       if (!factors.includes(partnerOfI))
+//         factors.splice(factors.length / 2 + 1, 0, partnerOfI);
+//     }
+//   }
+
+//   console.log(`LoopCount: ${loopCount}`);
+//   return factors;
+// }
+
+// console.log(getAllFactor(8));
+// console.log(getAllFactor(25));
+// console.log(getAllFactor(84));
+// console.log(getAllFactor(45));
+// console.log(getAllFactor(61));
+// console.log(getAllFactor(36));
+// console.log(getAllFactor(16));
+
 // ********************************************************************************************************************
 
 // Print all multiples of a Number upto N
@@ -105,38 +133,86 @@
 //   const factorsOfa = [];
 
 //   for (let i = 1; i <= Math.sqrt(a); i++) {
-//     let partnerIndexOfa = a / i;
-
 //     if (a % i === 0) {
-//       factorsOfa.push(i);
+//       let partnerIndexOfa = a / i;
+//       factorsOfa.splice(factorsOfa.length / 2, 0, i);
 
-//       if (!factorsOfa.includes(partnerIndexOfa)) factorsOfa.push(i);
+//       if (!factorsOfa.includes(partnerIndexOfa))
+//         factorsOfa.splice(factorsOfa.length / 2 + 1, 0, partnerIndexOfa);
+//     }
+//   }
+
+//   const factorsOfb = [];
+
+//   for (let i = 1; i <= Math.sqrt(b); i++) {
+//     let partnerIndexOfb = b / i;
+
+//     if (b % i === 0) {
+//       factorsOfb.splice(factorsOfb.length / 2, 0, i);
+
+//       if (!factorsOfb.includes(partnerIndexOfb))
+//         factorsOfb.splice(factorsOfb.length / 2 + 1, 0, partnerIndexOfb);
+//     }
+//   }
+
+//   const common = factorsOfa.filter((item) => {
+//     return factorsOfb.includes(item);
+//   });
+
+//   const max = Math.max(...common);
+//   return `HCF = ${max}`;
+// }
+
+// console.log(getHCF(24, 36));
+
+// function getHCF(num1, num2) {
+//   let factorsOfNum1 = [];
+//   let HCF = 0;
+
+//   for (let i = 1; i <= Math.sqrt(num1); i++) {
+//     if (num1 % i === 0) {
+//       let partnerIndex = num1 / i;
+
+//       factorsOfNum1.splice(factorsOfNum1.length / 2, 0, i);
+
+//       if (!factorsOfNum1.includes(partnerIndex))
+//         factorsOfNum1.splice(factorsOfNum1.length / 2 + 1, 0, partnerIndex);
+//     }
+//   }
+
+//   console.log(factorsOfNum1);
+
+//   for (let i = factorsOfNum1.length - 1; i >= 0; i--) {
+//     if (num2 % factorsOfNum1[i] === 0) {
+//       return `HCF = ${factorsOfNum1[i]}`;
 //     }
 //   }
 // }
 
-// console.log(getHCF(12, 18));
+// console.log(getHCF(48, 180));
 
-function getFactors(num) {
-  let factors = [];
+// ********************************************************************************************************************
 
-  for (let i = 1; i <= Math.sqrt(num); i++) {
-    let partnerIndexOfa = num / i;
+// HomeWork
 
-    if (num % i === 0) {
-      factors.slice(factors.length / 2, 0, i);
-      if (!factors.includes(partnerIndexOfa)) {
-        factors.slice(factors.length / 2 + 1, 0, partnerIndexOfa);
-      }
-    }
-  }
+// Count the Total Number of Factors of a Number
 
-  return factors;
-}
+// Input: N = 24
+// Output: 8 Factors
 
-console.log(getFactors(25));
-console.log(getFactors(18));
-console.log(getFactors(80));
-console.log(getFactors(36));
-console.log(getFactors(44));
-console.log(getFactors(96));
+// function totalNumbersOfFactors(num) {
+//   const digit = [];
+//   for (let i = 1; i <= Math.sqrt(num); i++) {
+//     if (num % i === 0) {
+//       digit.splice(digit.length / 2, 0, i);
+
+//       let partnerIndex = num / i;
+//       if (!digit.includes(partnerIndex))
+//         digit.splice(digit.length / 2 + 1, 0, partnerIndex);
+//     }
+//   }
+
+//   return `${digit.length} factors`;
+// }
+
+// console.log(totalNumbersOfFactors(24));
