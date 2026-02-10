@@ -216,3 +216,30 @@
 // }
 
 // console.log(totalNumbersOfFactors(24));
+
+// ********************************************************************************************************************
+
+// Sum of All Factors of a Number
+
+// Input: N = 12
+// Output: Sum = 28
+
+// function sumOfAllFactors(num) {
+//   const digit = [];
+
+//   for (let i = 1; i <= Math.sqrt(num); i++) {
+//     if (num % i === 0) {
+//       digit.splice(digit.length / 2, 0, i);
+//       const partnerIndex = num / i;
+
+//       if (!digit.includes(partnerIndex))
+//         digit.splice(digit.length / 2 + 1, 0, partnerIndex);
+//     }
+//   }
+
+//   const result = digit.reduce((acc, curr) => (acc += curr));
+
+//   return result;
+// }
+
+// console.log(sumOfAllFactors(12));
