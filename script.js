@@ -189,7 +189,61 @@
 //   }
 // }
 
-// console.log(getHCF(48, 180));
+// console.log(getHCF(48, 62));
+
+// function getHCFUsingEuclidean(num1, num2) {
+//   let dividend = num1 > num2 ? num1 : num2;
+//   let divisor = num1 < num2 ? num1 : num2;
+
+//   while (dividend % divisor !== 0) {
+//     const remainder = dividend % divisor;
+//     dividend = divisor;
+//     divisor = remainder;
+//   }
+
+//   return divisor;
+// }
+
+// console.log(getHCFUsingEuclidean(48, 64));
+
+// function getHCFUsingEuclidean(num1, num2) {
+//   let dividend = num1 > num2 ? num1 : num2;
+//   let divisor = num1 < num2 ? num1 : num2;
+//   let loopCount = 0;
+
+//   while (dividend % divisor !== 0) {
+//     loopCount++;
+//     const remainder = dividend % divisor;
+//     dividend = divisor;
+//     divisor = remainder;
+//   }
+//   console.log(loopCount);
+//   return divisor;
+// }
+
+// console.log(getHCFUsingEuclidean(5, 9));
+
+// Find LCM of given numbers
+
+// LCM = a*b/HCF
+
+// function findLCM(num1, num2) {
+//   let dividend = num1 > num2 ? num1 : num2;
+//   let divisor = num1 < num2 ? num1 : num2;
+
+//   while (dividend % divisor !== 0) {
+//     let remainder = dividend % divisor;
+//     dividend = divisor;
+//     divisor = remainder;
+//   }
+
+//   const HCF = divisor;
+//   const LCM = (num1 * num2) / HCF;
+
+//   return LCM;
+// }
+
+// console.log(findLCM(12, 16));
 
 // ********************************************************************************************************************
 
@@ -251,19 +305,82 @@
 // Input: N = 36
 // Output: 18
 
-function greatestFactor(num) {
+// function greatestFactor(num) {
+//   let digit = [];
+
+//   for (let i = 1; i <= Math.sqrt(num); i++) {
+//     if (num % i === 0) {
+//       digit.splice(digit.length / 2, 0, i);
+//       const partnerIndex = num / i;
+//       if (!digit.includes(partnerIndex))
+//         digit.splice(digit.length / 2 + 1, 0, partnerIndex);
+//     }
+//   }
+
+//   return digit[digit.length - 2];
+// }
+
+// console.log(greatestFactor(36));
+
+// function greatestFactor(num) {
+//   for (let i = Math.floor(num / 2); i >= 1; i--) {
+//     if (num % i === 0) {
+//       return i;
+//     }
+//   }
+// }
+
+// console.log(greatestFactor(45));
+
+// function getGreatestFactor(num) {
+//   let maxFactor = 1;
+
+//   for (let i = Math.floor(Math.sqrt(num)); i >= 1; i--) {
+//     if (num % i === 0) {
+//       let partnerIndex = num / i;
+
+//       if (partnerIndex !== num && partnerIndex > maxFactor)
+//         maxFactor = partnerIndex;
+
+//     }
+//   }
+
+//   return maxFactor;
+// }
+
+// console.log(getGreatestFactor(40));
+
+// ********************************************************************************************************************
+
+// Check if a number is a Perfect Number
+
+// N = 28
+// Output = Perfect Number
+
+function checkPerfectNumber(num) {
   let digit = [];
+  let value = 0;
+
+  if (num <= 0) {
+    return "Please Provide positive integer";
+  }
 
   for (let i = 1; i <= Math.sqrt(num); i++) {
     if (num % i === 0) {
       digit.splice(digit.length / 2, 0, i);
-      const partnerIndex = num / i;
-      if (!digit.includes(partnerIndex))
-        digit.splice(digit.length / 2 + 1, 0, partnerIndex);
+      if (!digit.includes(num / i)) {
+        digit.splice(Math.floor(digit.length / 2 + 1), 0, num / i);
+      }
     }
   }
 
-  return digit[digit.length - 2];
+  for (let i = 0; i <= digit.length - 2; i++) {
+    value += digit[i];
+  }
+
+  return value === num ? "Perfect Number" : "Not a Perfect Number";
 }
 
-console.log(greatestFactor(36));
+console.log(checkPerfectNumber(28));
+// ********************************************************************************************************************
+
