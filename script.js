@@ -357,30 +357,51 @@
 // N = 28
 // Output = Perfect Number
 
-function checkPerfectNumber(num) {
-  let digit = [];
-  let value = 0;
+// function checkPerfectNumber(num) {
+//   let digit = [];
+//   let value = 0;
 
-  if (num <= 0) {
-    return "Please Provide positive integer";
-  }
+//   if (num <= 0) {
+//     return "Please Provide positive integer";
+//   }
 
-  for (let i = 1; i <= Math.sqrt(num); i++) {
-    if (num % i === 0) {
-      digit.splice(digit.length / 2, 0, i);
-      if (!digit.includes(num / i)) {
-        digit.splice(Math.floor(digit.length / 2 + 1), 0, num / i);
-      }
-    }
-  }
+//   for (let i = 1; i <= Math.sqrt(num); i++) {
+//     if (num % i === 0) {
+//       digit.splice(digit.length / 2, 0, i);
+//       if (!digit.includes(num / i)) {
+//         digit.splice(Math.floor(digit.length / 2 + 1), 0, num / i);
+//       }
+//     }
+//   }
 
-  for (let i = 0; i <= digit.length - 2; i++) {
-    value += digit[i];
-  }
+//   for (let i = 0; i <= digit.length - 2; i++) {
+//     value += digit[i];
+//   }
 
-  return value === num ? "Perfect Number" : "Not a Perfect Number";
+//   return value === num ? "Perfect Number" : "Not a Perfect Number";
+// }
+
+// console.log(checkPerfectNumber(28));
+// ********************************************************************************************************************
+
+// Find the HCF and LCM of three Number
+
+// Input = 8,12,6
+// OutPut = HCf=4, LCM= 48
+
+function hcf(a, b) {
+  return b === 0 ? a : hcf(b, a % b);
 }
 
-console.log(checkPerfectNumber(28));
-// ********************************************************************************************************************
+function lcm(a, b) {
+  return (a * b) / hcf(a, b);
+}
+
+let a = 8, b = 12, c = 6;
+
+let HCF = hcf(hcf(a, b), c);
+let LCM = lcm(lcm(a, b), c);
+
+console.log("HCF =", HCF);
+console.log("LCM =", LCM);
 
