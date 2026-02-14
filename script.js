@@ -389,19 +389,32 @@
 // Input = 8,12,6
 // OutPut = HCf=4, LCM= 48
 
-function hcf(a, b) {
-  return b === 0 ? a : hcf(b, a % b);
+// function hcf(a, b) {
+//   return b === 0 ? a : hcf(b, a % b);
+// }
+
+// function lcm(a, b) {
+//   return (a * b) / hcf(a, b);
+// }
+
+// let a = 8, b = 12, c = 6;
+
+// let HCF = hcf(hcf(a, b), c);
+// let LCM = lcm(lcm(a, b), c);
+
+// console.log("HCF =", HCF);
+// console.log("LCM =", LCM);
+// ********************************************************************************************************************
+
+// Check square of a number is divisible by 2
+
+function isSquareDivisibleBy2(num) {
+  let square = num * num;
+  return square % 2 === 0; 
 }
 
-function lcm(a, b) {
-  return (a * b) / hcf(a, b);
-}
+let number = 5;
+console.log(isSquareDivisibleBy2(number));
 
-let a = 8, b = 12, c = 6;
-
-let HCF = hcf(hcf(a, b), c);
-let LCM = lcm(lcm(a, b), c);
-
-console.log("HCF =", HCF);
-console.log("LCM =", LCM);
-
+number = 4;
+console.log(isSquareDivisibleBy2(number));
